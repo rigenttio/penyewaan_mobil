@@ -14,38 +14,27 @@
       </tr>
     </thead>
     <tbody>
+      @php
+          $i = 1;
+      @endphp
+      @foreach ($sewa as $s)
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
+        <th scope="row">{{$i}}</th>
+        <td>{{$s->id}}</td>
+        <td>{{$s->pelanggan->nama}}</td>
+        <td>{{$s->mobil->merk}}</td>
+        <td>{{$s->tgl_sewa}}</td>
+        <td>{{$s->tgl_kembali}}</td>
+        <td>Rp. {{ number_format($s->biaya_sewa, 2, ',', '.') }}</td>
         <td width="150px" scope="row">
-            <a href="/edit_sewa"><button type="button" class="btn btn-success">Edit</button></a>
+            <a href="/edit_sewa/{{$s->id}}"><button type="button" class="btn btn-success">Edit</button></a>
             <a href="" onclick="return confirm('Data akan di hapus permanent')"><button type="button" class="btn btn-danger">Delete</button></a>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
+      @php
+          $i++;
+      @endphp
+      @endforeach
     </tbody>
   </table>
 @endsection

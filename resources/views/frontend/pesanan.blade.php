@@ -7,51 +7,50 @@
                 Rincian Pesanan
             </div>
             <div class="card-body">
-                <form action="" method="POST">
                     <div class="container overflow-hidden">
                         <div class="row gy-3 justify-content-center">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Merk</h6>
-                                    <p class="card-text mb-4">Toyota Supra</p>
+                                    <p class="card-text mb-4">{{$pesanan->mobil()->first()->merk}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Penyewa</h6>
-                                    <p class="card-text mb-4">Anton</p>
+                                    <p class="card-text mb-4">{{$pesanan->pelanggan()->first()->nama}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">No. Telp</h6>
-                                    <p class="card-text mb-4">083474357</p>
+                                    <p class="card-text mb-4">{{$pesanan->pelanggan()->first()->no_tlp}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Warna</h6>
-                                    <p class="card-text mb-4">putih</p>
+                                    <p class="card-text mb-4">{{$pesanan->mobil()->first()->warna}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Alamat</h6>
-                                    <p class="card-text mb-4">drgdrgdrg</p>
+                                    <p class="card-text mb-4">{{$pesanan->pelanggan()->first()->alamat}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Email</h6>
-                                    <p class="card-text mb-4">sfs@fesfs</p>
+                                    <p class="card-text mb-4">{{$pesanan->pelanggan()->first()->email}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Harga Sewa/Hari</h6>
-                                    <p class="card-text mb-4">Rp. 450.000</p>
+                                    <p class="card-text mb-4">Rp. {{ number_format($pesanan->mobil()->first()->harga_sewa, 2, ',', '.') }}</p>
                                 </div>                              
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Tgl. Sewa</h6>
-                                    <p class="card-text mb-4">2002</p>
+                                    <p class="card-text mb-4">{{date('d-m-Y', strtotime($pesanan->tgl_sewa))}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Tgl. Kembali</h6>
-                                    <p class="card-text mb-4">1232</p>
+                                    <p class="card-text mb-4">{{date('d-m-Y', strtotime($pesanan->tgl_kembali))}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mt-5 mb-1">Total Harga</h6>
-                                    <p class="card-text mb-4">Rp. 1.232.000</p>
+                                    <p class="card-text mb-4">Rp. {{ number_format($pesanan->biaya_sewa, 2, ',', '.') }}</p>
                                 </div>
                             </div>
                             <div class="col-12 ">
@@ -59,7 +58,6 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </div>

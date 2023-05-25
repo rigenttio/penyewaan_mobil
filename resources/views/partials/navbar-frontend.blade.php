@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link {{ ($title === "Home") ? 'active' : ''}}" href="/home-frontend">Home</a>
-          <a class="nav-link {{ ($title === "Katalog Mobil") ? 'active' : ''}}" href="/katalog-frontend">Katalog Mobil</a>
+          <a class="nav-link {{ ($title === "Katalog Mobil") ? 'active' : ''}}" href="/katalog">Katalog Mobil</a>
           <a class="nav-link {{ ($title === "Rincian Pesanan") ? 'active' : ''}}" href="/pesanan">Pesanan</a>
           <a class="nav-link {{ ($title === "Akun") ? 'active' : ''}}" href="/akun">Akun</a>
           <a class="nav-link disabled me-auto d-flex">Disabled</a>

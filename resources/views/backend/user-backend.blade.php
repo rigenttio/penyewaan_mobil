@@ -13,35 +13,20 @@
       </tr>
     </thead>
     <tbody>
+      @foreach ($pelanggan as $p) 
       <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>Otto</td>
+        <td>{{$p->id}}</td>
+        <td>{{$p->nama}}</td>
+        <td>{{$p->alamat}}</td>
+        <td>{{$p->no_tlp}}</td>
+        <td>{{$p->email}}</td>
         <td width="150px" scope="row">
             <a href="/edit_user"><button type="button" class="btn btn-success">Edit</button></a>
             <a href="" onclick="return confirm('Data akan di hapus permanent')"><button type="button" class="btn btn-danger">Delete</button></a>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
+      @endforeach
     </tbody>
   </table>
 @endsection

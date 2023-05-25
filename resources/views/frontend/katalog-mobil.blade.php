@@ -5,39 +5,30 @@
       <tr>
         <th scope="col">No.</th>
         <th scope="col">Merk</th>
-        <th scope="col">Status</th>
         <th scope="col">Kapasitas</th>
         <th scope="col">Harga Sewa/Hari</th>
         <th scope="col">Aksi</th>
       </tr>
     </thead>
     <tbody>
+      @php
+          $i = 1;
+      @endphp
+      @foreach ($katalog as $k)
       <tr>
-        <th scope="row">1</th>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
+        <th scope="row">{{$i}}</th>
+        <td>{{$k->merk}}</td>
+        <td>{{$k->kapasitas}} Orang</td>
+        <td>Rp {{ number_format($k->harga_sewa, 2, ',', '.') }}
+        </td>
         <td width="150px" scope="row">
-            <a href="/detail" class=" card-link mb-auto">Detail</a>
+            <a href="/katalog/detail/{{$k->id}}" class=" card-link mb-auto">Detail</a>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Otto</td>
-        <td>Otto</td>
-
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
+      @php
+          $i++;
+      @endphp
+      @endforeach
     </tbody>
   </table>
 @endsection

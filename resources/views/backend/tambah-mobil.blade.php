@@ -7,7 +7,8 @@
                 Tambah Mobil
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="/add_mobil" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="merk" class="form-label">Merk</label>
                         <input type="text" class="form-control" id="merk" name="merk" placeholder="Masukan Merk Mobil">
@@ -34,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="hargasewa" class="form-label">Harga Sewa / Hari</label>
-                        <input type="number" min="0" class="form-control" id="hargasewa" name="hargasewa" placeholder="Harga Sewa">
+                        <input type="number" min="0" class="form-control" id="hargasewa" name="harga_sewa" placeholder="Harga Sewa">
                     </div>
                     <div class="col-12 ">
                         <input type="submit" name="submit" value="Submit" class="me-5 btn btn-primary" />

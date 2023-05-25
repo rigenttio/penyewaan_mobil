@@ -1,7 +1,13 @@
 @extends('layouts.main-backend')
 @section('konten')
-<div class="container-fluid mb-4">
-    <a href="/add_mobil"><button type="button" class="btn btn-primary ">Tambah</button></a>
+<div>
+    <a href="{{ route('add.mobil') }}"><button type="button" class="btn btn-primary ">Tambah</button></a>
+    @if (session()->has('success'))        
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Berhasil!</strong> {{session('success')}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 </div>
 <table class="table">
     <thead>
@@ -18,41 +24,36 @@
       </tr>
     </thead>
     <tbody>
+      @php
+          $i = 1;
+      @endphp
+      @foreach ($mobil as $m)
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
+        <th scope="row">{{$i}}</th>
+        <td>{{ $m->merk }}</td>
+        <td>{{ $m->model }}</td>
+        <td>{{ $m->tahun }}</td>
+        <td>{{ $m->warna }}</td>
+        <td>{{ $m->kapasitas }}</td>
+        <td>{{ $m->deskripsi }}</td>
+        <td>{{ $m->harga_sewa }}</td>
         <td width="150px" scope="row">
-            <a href="/edit_mobil"><button type="button" class="btn btn-success">Edit</button></a>
-            <a href="" onclick="return confirm('Data akan di hapus permanent')"><button type="button" class="btn btn-danger">Delete</button></a>
+            <a href="/edit_mobil/{{$m->id}}" type="button" class="btn btn-success">Edit</button></a>
+            <form action="/mobil/{{$m->id}}" method="POST" class="d-inline">
+              @csrf
+              @method('DELETE')
+              <button onclick="return confirm('Hapus data secara permanent?')" class="btn btn-danger">Delete</button>
+            </form>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
+      @php
+          $i++;
+      @endphp
+      @endforeach
     </tbody>
-  </table>
+</table>
+
+
+
 @endsection
+
