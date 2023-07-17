@@ -47,16 +47,14 @@ Route::middleware(['auth', 'cekrole:0'])->group(function () {
     Route::get('/katalog/detail/{id}', [KatalogController::class, 'detail']);
     Route::get('/katalog/detail/{id}/pesan', [KatalogController::class, 'pesan']);
     Route::post('/katalog/detail/{id}/pesan', [KatalogController::class, 'store']);
+    Route::get('/edit-akun/{id}', [AkunController::class, 'edit_akun']);
+    Route::post('/edit-akun/{id}', [AkunController::class, 'update']);
 });
 
 
 
 
-Route::get('/edit_user', function () {
-    return view('backend/edit-user', [
-        "title" => "Data User"
-    ]);
-});
+
 
 // Frontend
 
@@ -69,11 +67,6 @@ Route::get('/pesan-sekarang', function () {
 });
 
 
-Route::get('/edit-akun', function () {
-    return view('frontend/edit-akun', [
-        "title" => "Akun"
-    ]);
-});
 // Route::prefix("admin")->group(function () {
 //     Route::get('/login', [AdminLoginController::class, 'index'])->name('admin.login');
 // });

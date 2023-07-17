@@ -15,7 +15,7 @@
       <div class="navbar-nav ms-auto">
         <form action="/logout" method="POST">
           @csrf
-          <button type="submit" class="btn"><i class="bi bi-box-arrow-right"></i> Logout</button>
+          <button type="submit" class="btn btn-secondary"><i class="bi bi-box-arrow-right"></i> Logout</button>
         </form>
       </div>
     </div>

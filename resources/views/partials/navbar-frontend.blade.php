@@ -12,6 +12,12 @@
           <a class="nav-link {{ ($title === "Akun") ? 'active' : ''}}" href="/akun">Akun</a>
           <a class="nav-link disabled me-auto d-flex">Disabled</a>
         </div>
+        <div class="navbar-nav ms-auto">
+          <form action="/logout" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-secondary"><i class="bi bi-box-arrow-right"></i> Logout</button>
+          </form>
+        </div>
       </div>
     </div>
   </nav>

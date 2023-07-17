@@ -13,25 +13,25 @@
                             <div class="col-6">
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Nama</h6>
-                                    <p class="card-text mb-4">Toyota Supra</p>
+                                    <p class="card-text mb-4">{{$user->nama}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Alamat</h6>
-                                    <p class="card-text mb-4">Anton</p>
+                                    <p class="card-text mb-4">{{$user->alamat}}</p>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">No. Telp</h6>
-                                    <p class="card-text mb-4">2002</p>
+                                    <p class="card-text mb-4">{{$user->no_tlp}}</p>
                                 </div>
                                 <div class="mb-3">
                                     <h6 class="card-subtitle mb-1">Email</h6>
-                                    <p class="card-text mb-4">1232</p>
+                                    <p class="card-text mb-4">{{$user->email}}</p>
                                 </div>
                             </div>
                             <div class="col-12 ">
-                                <a href="/edit-akun"><button type="button" class="btn btn-danger">Edit</button></a>
+                                <a href="/edit-akun/{{$user->id}}"><button type="button" class="btn btn-danger">Edit</button></a>
                             </div>
                         </div>
                     </div>

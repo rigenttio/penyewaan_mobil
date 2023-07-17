@@ -9,7 +9,7 @@
               <h5 class="card-title text-white">{{$k->merk}}</h5>
               <h6 class="card-subtitle mb-2 text-white">{{$k->kapasitas}}</h6>
               <p class="card-text text-white mb-5">Rp. {{number_format($k->harga_sewa, 2, ',', '.')}}/Hari</p>
-              <a href="/detail" class="text-white card-link mb-auto">Detail</a>
+              <a href="/katalog/detail/{{$k->id}}" class="text-white card-link mb-auto">Detail</a>
             </div>
         </div>
     </div>
